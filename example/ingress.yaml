@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/issuer: "selfsigned-issuer"
+    name: nginx-test
+    namespace: default
+spec:
+    rules:
+      - host: nginx1.apps.kct.mylab.local
+        http:
+          paths:
+            - backend:
+                serviceName: nginxnew
+                servicePort: 80
+              path: /
+    tls:
+        - hosts:
+            - nginx1.apps.kct.mylab.local
+          secretName: nginx-cert-tls
+

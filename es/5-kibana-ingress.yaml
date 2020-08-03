@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kibana-logging
+  namespace: kube-logging
+spec:
+  rules:
+  - host: kibana.apps.kct.mylab.local
+    http:
+      paths:
+      - backend:
+          serviceName: kibana
+          servicePort: 5601
+        path: /
