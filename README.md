@@ -1,3 +1,4 @@
+![Kubernetes](images/k8slogo.png)
 ## How to setup a production ready kubernetes cluster?
 
 A complete enterprise grade kubernetes production cluster setup.
