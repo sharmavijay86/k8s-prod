@@ -1,0 +1,53 @@
+# hello-kubernetes.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-kubernetes
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: hello-kubernetes
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-kubernetes
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-kubernetes
+  template:
+    metadata:
+      labels:
+        app: hello-kubernetes
+    spec:
+      containers:
+      - name: hello-kubernetes
+        image: sharmavijay86/hello-k8s:v1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/issuer: "selfsigned-issuer"
+    name: nginx-test
+    namespace: default
+spec:
+    rules:
+      - host: nginx1.mylab.local
+        http:
+          paths:
+            - backend:
+                serviceName: hello-kubernetes
+                servicePort: 80
+              path: /
+    tls:
+        - hosts:
+            - nginx1.mylab.local
+          secretName: nginx-cert-tls
