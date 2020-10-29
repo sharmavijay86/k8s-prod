@@ -30,6 +30,6 @@ A complete enterprise grade kubernetes production cluster setup.
 1. [NFS Server setup on separate Centos](nfs-server.md)
 1. [setup nfs dynamic storage provisioner](nfs-provisioner.md)
 1. [setup cert-manager](cert-manager.md)
-1. [Setup nginx ingress controller](nginx-ingress.yaml)
+1. [Setup nginx ingress controller](nginx-ingress.md)
 1. [Setup monitoring with prometheus,node-exporter and grafana](setup-monitoring.md)
 1. [Setup elastic search logging with kibana and fluentbit](setup-logging.md)
