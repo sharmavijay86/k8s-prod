@@ -1,11 +1,12 @@
-## prepareing all kubernetes nodes
+## Prepareing all kubernetes nodes
 
 In this section we will be  preparing our all kubernetes nodes i.e. 3 master and 2 worker.
 
 1. remove swap partition or use temporary
 
-``` #sed -i '/swap/d' /etc/fstab
-    # swapoff -a 
+``` 
+#sed -i '/swap/d' /etc/fstab
+# swapoff -a 
 ```
 2. Disable firewalld service and selinux.
 
