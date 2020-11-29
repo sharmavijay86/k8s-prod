@@ -8,7 +8,7 @@ Create a new namespace for storage
 kubectl create ns ingress
 ```
 
-iDeploy package.
+Deploy package.
 
 ```
 helm install nginx stable/nginx-ingress --set controller.metrics.enabled=true --namespace=ingress

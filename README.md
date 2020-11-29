@@ -3,7 +3,7 @@
 
 A complete enterprise grade kubernetes production cluster setup.
 
-#### Components
+### Components
 
 * Load Balancer setup with HAProxy and keepalived
 * 3 node master setup with kubeadm

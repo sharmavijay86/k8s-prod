@@ -9,12 +9,14 @@ The design will be something like bellow.
 1. check the selinux status 
 
 ```bash  
-# getenforce ```
+ getenforce 
+ ```
 
 disable selinux
 
 ```bash 
-#sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config ```
+sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+ ```
 
 2. Check firewall status
 
@@ -22,15 +24,16 @@ disable firewalld  or configure for port 6443 (api port of kubernetes)
 
 i am disabling it.
 ```bash 
-#systemctl disable firewalld ```
+# systemctl disable firewalld 
+```
 
 3. install and setup components on both lb1 and lb2 node
 
 ```bash 
-#yum install haproxy keepalived -y
-#cd /etc/keepalived
-#mv keepalived.conf  keepalived.conf-orig
-#vim /etc/keepalived/keepalived.conf
+yum install haproxy keepalived -y
+cd /etc/keepalived
+mv keepalived.conf  keepalived.conf-orig
+vim /etc/keepalived/keepalived.conf
 ```
 
 bellow content you can keep in LB1 node keepalived .conf file.
