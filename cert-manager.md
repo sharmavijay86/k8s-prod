@@ -1,4 +1,4 @@
-## NFS dynamic storage provisioner for kubernetes
+## Automatic certificate provisioner for kubernetes
 
 Apply manifest from jetstack
 
