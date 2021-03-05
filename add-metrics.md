@@ -7,7 +7,11 @@ $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/s
 $ chmod 700 get_helm.sh
 $ ./get_helm.sh
 ```
+or 
 
+```
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+```
 Now before moving to install metrics-server in kubernetes lets add first google stable helm repo.
 
 Add helm repo
