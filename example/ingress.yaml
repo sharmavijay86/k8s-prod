@@ -8,7 +8,7 @@ metadata:
     namespace: default
 spec:
     rules:
-      - host: nginx1.apps.kct.mylab.local
+      - host: nginx1.k8s.mylab.local
         http:
           paths:
             - backend:
@@ -17,6 +17,6 @@ spec:
               path: /
     tls:
         - hosts:
-            - nginx1.apps.kct.mylab.local
+            - nginx1.k8s.mylab.local
           secretName: nginx-cert-tls
 

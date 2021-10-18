@@ -73,6 +73,7 @@ spec:
         app: elasticsearch
     spec:
       accessModes: [ "ReadWriteOnce" ]
+      storageClassName: longhorn
       resources:
         requests:
           storage: 10Gi
