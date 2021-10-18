@@ -17,7 +17,8 @@ kubectl create ns app-storage
 Deploy package. you should replace your server name ip and export dir path.
 
 ```
-helm install nfs --set nfs.server=192.168.1.73,nfs.path=/srv/nfs/kubedata,storageClass.defaultClass=true stable/nfs-client-provisioner -n app-storage
+helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+helm install nfs --set nfs.server=192.168.1.73,nfs.path=/srv/nfs/kubedata,storageClass.defaultClass=true,storageClass.archiveOnDelete=false nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner -n app-storage
 ```
 Done!
 
@@ -26,7 +27,7 @@ You can check storage class
 ```
 kubectl get sc
 NAME                   PROVISIONER                                RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
-nfs-client (default)   cluster.local/nfs-nfs-client-provisioner   Delete          Immediate           true                   0h08m
+nfs-client (default)   cluster.local/nfs-subdir-external-provisioner   Delete          Immediate           true                   0h08m
 
 ```
 
